@@ -126,6 +126,21 @@ class ReferenceTest < Test::Unit::TestCase
       assert_resolves(object, "$.a[?(@['$']==5)]", [{"a" => 7, "@" => 4, "$" => 5}])
     end
   end
+  
+  context "Sample 11" do
+    setup do
+      @object = {
+        "status" => {
+          "sub_status" => 1
+        }
+      }
+    end
+
+    should "resolve with '_'" do
+      path = '$.status.sub_status'
+      assert_resolves(@object, path, [1])
+    end
+  end
     
   private
   

@@ -1823,7 +1823,7 @@ module JSONPathGrammar
 
     s0, i0 = [], index
     loop do
-      if input.index(Regexp.new('[a-zA-Z0-9]'), index) == index
+      if input.index(Regexp.new('[a-zA-Z0-9_]'), index) == index
         r1 = instantiate_node(SyntaxNode,input, index...(index + 1))
         @index += 1
       else
